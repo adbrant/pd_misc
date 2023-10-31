@@ -1,0 +1,80 @@
+#N canvas 296 151 1436 690 10;
+#X obj 768 133 osc~, f 7;
+#X obj 767 165 clip~ -1 1;
+#X obj 1054 294 *~;
+#X obj 639 204 expr 1 - $f1;
+#X obj 855 389 +~;
+#X obj 480 133 osc~, f 7;
+#X obj 712 23 loadbang;
+#X obj 679 436 *~;
+#X obj 480 163 clip~ -1 1;
+#X obj 640 348 lop~ 144;
+#X obj 806 436 *~;
+#X obj 855 348 hip~ 636;
+#X msg 519 113 0;
+#X msg 807 113 0.5;
+#X obj 737 478 +~;
+#X obj 479 294 *~;
+#X obj 480 389 +~;
+#X text 934 471 Probably not the most authentic take on Fender's Harmonic
+Tremolo circuit but it sounds dang good to those ears. The incoming
+signal gets split up into a high- and low-passed signal. Both signals
+are modulated by two LFO signals which are identical but 180° out
+of phase and then recombined again.;
+#X obj 480 73 expr ($f1 * 12);
+#N canvas 323 82 450 300 META 0;
+#X text 27 25 KEYWORDS Brownie;
+#X text 27 95 AUTHOR Martin Werner;
+#X text 27 135 VERSION 0.1;
+#X text 27 65 DESCRIPTION A pd take on Fender's Harmonic Tremolo circuit
+found in the "Brownface" amps of the early 1960s.;
+#X text 27 115 WEBSITE https://repreprep.bandcamp.com;
+#X text 27 45 LICENSE Do What The F*ck You Want To Public License;
+#X restore 15 16 pd META;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X text 0 0 plugdatainfo <?xml version="1.0" encoding="UTF-8"?> <PlugDataInfo/>
+;
+#X coords 0 1 100 -1 1 1 1;
+#X restore 0 0 graph;
+#X obj 467 34 hsl 128 17 0 1 0 0 empty empty empty -2 -8 0 10 #e4e4e4
+#5a5a5a #5a5a5a 0 1;
+#X obj 392 683 dac~;
+#X obj 742 524 *~ 1;
+#X obj 834 238 adc~;
+#X obj 980 18 hsl 128 17 0 1 0 0 empty empty empty -2 -8 0 10 #e4e4e4
+#5a5a5a #5a5a5a 0 1;
+#X obj 830 34 bng 25 250 50 0 empty empty empty 17 7 0 10 #e4e4e4 #5a5a5a
+#5a5a5a;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 0 16 1;
+#X connect 4 0 10 1;
+#X connect 5 0 8 0;
+#X connect 6 0 12 0;
+#X connect 6 0 13 0;
+#X connect 7 0 14 0;
+#X connect 8 0 15 0;
+#X connect 9 0 7 0;
+#X connect 10 0 14 1;
+#X connect 11 0 10 0;
+#X connect 12 0 5 1;
+#X connect 13 0 0 1;
+#X connect 14 0 23 0;
+#X connect 15 0 16 0;
+#X connect 16 0 7 1;
+#X connect 18 0 0 0;
+#X connect 18 0 5 0;
+#X connect 21 0 18 0;
+#X connect 23 0 22 1;
+#X connect 23 0 22 0;
+#X connect 24 0 9 0;
+#X connect 24 0 11 0;
+#X connect 24 0 14 0;
+#X connect 24 1 9 0;
+#X connect 24 1 11 0;
+#X connect 24 1 14 1;
+#X connect 25 0 15 1;
+#X connect 25 0 2 1;
+#X connect 26 0 13 0;
+#X connect 26 0 12 0;
